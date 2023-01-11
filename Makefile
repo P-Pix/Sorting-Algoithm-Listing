@@ -16,7 +16,7 @@ YELLOW='\033[0;33m'
 .DEFAULT_GOAL := help
 
 # for all file .cpp in the directory src/
-SRC	= $(wildcard *.cpp contoller/*.cpp model/*.cpp view/*.cpp)
+SRC	= $(wildcard src/*.cpp src/contoller/*.cpp src/model/*.cpp src/view/*.cpp)
 
 # Transform all file .cpp in the directory src/ in file .o
 OBJ	= $(SRC:.cpp=.o)
@@ -30,7 +30,7 @@ CC = g++
 # Name Executable
 NAME = Sorting_Algorithm
 CFLAGS =
-CXXFLAGS = -Wall -Wextra -Werror -std=c++11 -pthread 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++11 -pthread -lsfml-system -lsfml-window -lsfml-graphics
 LDFLAGS	=
 
 all: $(NAME) clean ## Compile link and clean all .o file
@@ -58,4 +58,4 @@ mrproper: clean  ## Vide les fichiers .o et le fichier executable
 	@rm -rf $(NAME)
 
 init: ## Create the directory bin/ and obj/
-	@mkdir -p bin bin/model bin/view bin/controller
+	@mkdir -p bin bin/src/model bin/src/view bin/src/controller
