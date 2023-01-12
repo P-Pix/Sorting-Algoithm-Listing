@@ -15,12 +15,24 @@ Sorting::~Sorting(void) {
     delete[] this->liste;
 }
 
-size_t Sorting::getSize(void) {
+size_t Sorting::getSize(void) const {
     return this->size;
 }
 
-int Sorting::get(size_t index) {
+int Sorting::get(size_t index) const {
     return this->liste[index];
+}
+
+void Sorting::resetCount(void) {
+    this->count = 0;
+}
+
+unsigned long long Sorting::getCount(void) const {
+    return this->count;
+}
+
+void Sorting::incrementCount(void) {
+    this->count++;
 }
 
 void Sorting::setSize(size_t size) {

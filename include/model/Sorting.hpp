@@ -18,9 +18,11 @@ class Sorting {
     private:
         std::vector<void (*)(int seed, int *liste, size_t size)> schuffleList;
         size_t size;
+        unsigned long long count;
 
     protected:
         int *liste;
+        
         void init(void);
 
     public:
@@ -28,10 +30,14 @@ class Sorting {
         Sorting(size_t size);
         ~Sorting(void);
 
-        size_t getSize(void);
+        size_t getSize(void) const;
         void setSize(size_t size);
-        int get(size_t index);
+        int get(size_t index) const;
         void schuffle(int seed, int mode);
+
+        void resetCount(void);
+        unsigned long long getCount(void) const;
+        void incrementCount(void);
         
         virtual void sort(void) = 0;
 
