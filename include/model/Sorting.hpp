@@ -16,13 +16,11 @@ void orderGrowing(int seed, int *liste, size_t size);
 
 class Sorting {
     private:
-        int *liste;
+        std::vector<void (*)(int seed, int *liste, size_t size)> schuffleList;
         size_t size;
-        std::vector<void (*)(int seed, int *liste, size_t size)> schuffleList = {
-            &schuffleOneTwo,
-            &orderGrowing,
-        };
 
+    protected:
+        int *liste;
         void init(void);
 
     public:
@@ -34,9 +32,8 @@ class Sorting {
         void setSize(size_t size);
         int get(size_t index);
         void schuffle(int seed, int mode);
-
-
-        //virtual void sort(void) = 0;
+        
+        virtual void sort(void) = 0;
 
         friend std::ostream& operator<<(std::ostream &os, const Sorting &s);
 };
